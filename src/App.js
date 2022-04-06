@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import LinkInput from './linkInput'
+import ShortedInput from './shortedInput'
+import Signup from './signup'
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import Login from './login'
+import Nav from './nav'
+import Dashboard from './dashboard'
+import ForgotPassword from './forgotPassword'
+import Emailverification from './emailverification'
+
 
 function App() {
+    const [inputvalue,setinputvalue] = useState("")
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/forgot" element={<ForgotPassword />} />
+          <Route path="/emailverification" element={<Emailverification />} />
+        </Routes>
+      </BrowserRouter>
+        {/* <LinkInput setinputvalue={setinputvalue}/>
+        <ShortedInput inputvalue={inputvalue}/> */}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
